@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('lowongans', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('location');
             $table->string('category');
             $table->text('desc');
             $table->timestamps();

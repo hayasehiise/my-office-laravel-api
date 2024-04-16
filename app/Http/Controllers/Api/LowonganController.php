@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 class LowonganController extends Controller
 {
     public function index() {
-        $lowongan = Lowongan::latest()->paginate(5);
+        $lowongan = Lowongan::latest()->paginate(8);
 
         return new LowonganResource(true, 'list data lowongan', $lowongan);
     }
@@ -20,6 +20,7 @@ class LowonganController extends Controller
     public function store(LowonganRequest $request) {
         $createData = Lowongan::create([
             'title' => $request->title,
+            'location' => $request->location,
             'category' => $request->category,
             'desc' => $request->desc,
         ]);
@@ -34,6 +35,7 @@ class LowonganController extends Controller
     public function update(LowonganRequest $request, Lowongan $dataLowongan) {
         $dataLowongan->update([
             'title' => $request->title,
+            'location' => $request->location,
             'category' => $request->category,
             'desc' => $request->desc,
         ]);

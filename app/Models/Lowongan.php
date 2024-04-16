@@ -11,6 +11,7 @@ class Lowongan extends Model
 
     protected $fillable = [
         'title',
+        'location',
         'category',
         'desc',
     ];
