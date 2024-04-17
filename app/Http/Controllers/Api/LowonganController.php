@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Lowongan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\LowonganResource;
 use App\Http\Requests\Api\LowonganRequest;
 use Illuminate\Validation\ValidationException;
@@ -12,7 +13,7 @@ use Illuminate\Validation\ValidationException;
 class LowonganController extends Controller
 {
     public function index() {
-        $lowongan = Lowongan::latest()->paginate(8);
+        $lowongan = Lowongan::latest()->paginate(10);
 
         return new LowonganResource(true, 'list data lowongan', $lowongan);
     }
@@ -43,10 +44,15 @@ class LowonganController extends Controller
         return new LowonganResource(true, 'Data lowongan terupdate', $dataLowongan);
     }
 
-    public function destroy(Lowongan $dataLowongan) {
-        $dataLowongan->delete();
-
-        return new LowonganResource(true, 'Data lowongan terhapus', null);
+    public function destroy(Lowongan $dataLowongan, Request $request) {
+        // return response()->json($request);
+        $tokenPass = Hash::make($request->token);
+        if (Hash::check('awaludapi', $tokenPass)) {
+            $dataLowongan->delete();
+            return new LowonganResource(true, 'Data lowongan terhapus', null);
+        } else {
+            return response()->json('Not Authorized', 401);
+        }
     }
 
 

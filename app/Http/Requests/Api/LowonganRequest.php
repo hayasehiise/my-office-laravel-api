@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LowonganRequest extends FormRequest
@@ -11,7 +12,13 @@ class LowonganRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        $tokenInputPass = Hash::make($this->input('token'));
+        if (Hash::check('awaludapi', $tokenInputPass)) {
+            return true;
+        } else {
+            return false;
+        }
+        // return true;
     }
 
     /**
