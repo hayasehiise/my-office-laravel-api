@@ -24,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
             return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
-        $this->app['request']->server->set('HTTPS', true);
+        // $this->app['request']->server->set('HTTPS', true);
+        if (env('APP_ENV') === 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 }
