@@ -31,6 +31,8 @@ class LowonganRequest extends FormRequest
         return [
             'title' => 'required',
             'location' => 'required',
+            'type' => 'required',
+            'company' => 'required',
             'category' => 'required',
             'desc' => 'required',
         ];
@@ -41,6 +43,8 @@ class LowonganRequest extends FormRequest
         return [
             'title.required' => 'Masukan Title',
             'location.required' => 'Masukan Lokasi',
+            'type.required' => 'Masukan Lokasi',
+            'company.required' => 'Masukan Lokasi',
             'category.required' => 'Masukan Kategory',
             'desc.required' => 'Masukan Deskripsi',
         ];

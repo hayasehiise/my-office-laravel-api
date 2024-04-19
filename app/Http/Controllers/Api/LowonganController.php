@@ -22,6 +22,8 @@ class LowonganController extends Controller
         $createData = Lowongan::create([
             'title' => $request->title,
             'location' => $request->location,
+            'type' => $request->type,
+            'company' => $request->company,
             'category' => $request->category,
             'desc' => $request->desc,
         ]);
@@ -37,6 +39,8 @@ class LowonganController extends Controller
         $dataLowongan->update([
             'title' => $request->title,
             'location' => $request->location,
+            'type' => $request->type,
+            'company' => $request->company,
             'category' => $request->category,
             'desc' => $request->desc,
         ]);
