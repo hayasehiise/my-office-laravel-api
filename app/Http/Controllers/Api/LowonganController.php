@@ -25,7 +25,7 @@ class LowonganController extends Controller
             'type' => $request->type,
             'company' => $request->company,
             'category' => $request->category,
-            'desc' => $request->desc,
+            'desc' => nl2br($request->desc),
         ]);
 
         return new LowonganResource(true, 'Data lowongan terinput', $createData);
