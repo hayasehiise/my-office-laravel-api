@@ -62,7 +62,7 @@ class WebinarController extends Controller
                 'price' => $discount_price,
             ]);
 
-            return new WebinarResource(true, 'Add data webinar', $dataWebinar);
+            return new WebinarResource(true, 'Update data webinar', $dataWebinar);
         } else {
             $dataWebinar->update([
                 'title' => $request->title,
@@ -73,7 +73,7 @@ class WebinarController extends Controller
                 'price' => $request->price,
             ]);
 
-            return new WebinarResource(true, 'Add data webinar', $dataWebinar);
+            return new WebinarResource(true, 'Update data webinar', $dataWebinar);
         }
     }
 
@@ -82,7 +82,7 @@ class WebinarController extends Controller
         $tokenPass = Hash::make($request->token);
         if (Hash::check('awaludapi', $tokenPass)) {
             $dataWebinar->delete();
-            return new WebinarResource(true, 'Data lowongan terhapus', null);
+            return new WebinarResource(true, 'Data webinar terhapus', null);
         } else {
             return response()->json('Not Authorized', 401);
         }
