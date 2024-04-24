@@ -19,13 +19,14 @@ class LowonganController extends Controller
     }
 
     public function store(LowonganRequest $request) {
+        $desc = str_replace('\n', '<br />', $request->desc);
         $createData = Lowongan::create([
             'title' => $request->title,
             'location' => $request->location,
             'type' => $request->type,
             'company' => $request->company,
             'category' => $request->category,
-            'desc' => nl2br($request->desc),
+            'desc' => $desc,
         ]);
 
         return new LowonganResource(true, 'Data lowongan terinput', $createData);
