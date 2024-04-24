@@ -19,7 +19,8 @@ class WebinarController extends Controller
 
     public function store(WebinarRequest $request) {
         if ($request->discount >= 1) {
-            $discount_price = ($request->price * $request->discount) / 100;
+            $temp_discount_price = ($request->price * $request->discount) / 100;
+            $discount_price = $request->price - $temp_discount_price;
 
             $createData = Webinar::create([
                 'title' => $request->title,
@@ -51,7 +52,8 @@ class WebinarController extends Controller
 
     public function update(WebinarRequest $request, Webinar $dataWebinar) {
         if ($request->discount >= 1) {
-            $discount_price = ($request->price * $request->discount) / 100;
+            $temp_discount_price = ($request->price * $request->discount) / 100;
+            $discount_price = $request->price - $temp_discount_price;
 
             $dataWebinar->update([
                 'title' => $request->title,
