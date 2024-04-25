@@ -32,8 +32,8 @@ class WebinarRequest extends FormRequest
             'time' => 'required',
             'date' => 'required',
             'via' => 'required',
-            'price' => 'required',
-            'discount' => 'required',
+            'price' => 'required|integer',
+            'discount' => 'required|integer',
         ];
     }
 }

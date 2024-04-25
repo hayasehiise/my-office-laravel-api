@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('date');
             $table->string('time');
             $table->string('via');
-            $table->integer('price');
+            $table->integer('base_price');
             $table->integer('discount');
+            $table->integer('price');
             $table->timestamps();
         });
     }

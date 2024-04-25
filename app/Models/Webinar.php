@@ -15,6 +15,7 @@ class Webinar extends Model
         'time',
         'via',
         'price',
+        'base_price',
         'discount',
     ];
 }

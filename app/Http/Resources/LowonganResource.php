@@ -26,7 +26,7 @@ class LowonganResource extends JsonResource
         return [
             'message' => $this->message,
             'status' => $this->status,
-            'data' => $this->resource
+            'data' => $this->resource,
         ];
     }
 }

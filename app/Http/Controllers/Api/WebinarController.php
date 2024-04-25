@@ -27,6 +27,7 @@ class WebinarController extends Controller
                 'date' => $request->date,
                 'time' => $request->time,
                 'via' => $request->via,
+                'base_price' => $request->price,
                 'discount' => $request->discount,
                 'price' => $discount_price,
             ]);
@@ -38,6 +39,7 @@ class WebinarController extends Controller
                 'date' => $request->date,
                 'time' => $request->time,
                 'via' => $request->via,
+                'base_price' => $request->price,
                 'discount' => $request->discount,
                 'price' => $request->price,
             ]);
@@ -60,6 +62,7 @@ class WebinarController extends Controller
                 'date' => $request->date,
                 'time' => $request->time,
                 'via' => $request->via,
+                'base_price' => $request->price,
                 'discount' => $request->discount,
                 'price' => $discount_price,
             ]);
@@ -71,6 +74,7 @@ class WebinarController extends Controller
                 'date' => $request->date,
                 'time' => $request->time,
                 'via' => $request->via,
+                'base_price' => $request->price,
                 'discount' => $request->discount,
                 'price' => $request->price,
             ]);
